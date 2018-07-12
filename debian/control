@@ -1,0 +1,13 @@
+Source: ros-kinetic-mir-navigation
+Section: misc
+Priority: extra
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-roslaunch
+Homepage: https://github.com/dfki-ric/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-mir-navigation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-base-local-planner, ros-kinetic-dwa-local-planner, ros-kinetic-eband-local-planner, ros-kinetic-map-server, ros-kinetic-mir-driver, ros-kinetic-move-base, ros-kinetic-teb-local-planner
+Description: Launch and configuration files for move_base, localization etc.
+ on the MiR robot.
