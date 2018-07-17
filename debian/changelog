@@ -1,0 +1,16 @@
+ros-indigo-mir-driver (1.0.1-0trusty) trusty; urgency=high
+
+  * mir_driver: Remove leading slashes in TF frames
+  * mir_driver: Install launch directory
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Mon, 16 Jul 2018 22:00:00 -0000
+
+ros-indigo-mir-driver (1.0.0-0trusty) trusty; urgency=high
+
+  * Initial release
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Wed, 11 Jul 2018 22:00:00 -0000
+
+
