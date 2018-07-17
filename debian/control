@@ -1,0 +1,12 @@
+Source: ros-kinetic-mir-driver
+Section: misc
+Priority: extra
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), python-websocket, ros-kinetic-actionlib-msgs, ros-kinetic-catkin, ros-kinetic-diagnostic-msgs, ros-kinetic-dynamic-reconfigure, ros-kinetic-geometry-msgs, ros-kinetic-mir-actions, ros-kinetic-mir-msgs, ros-kinetic-move-base-msgs, ros-kinetic-nav-msgs, ros-kinetic-rosgraph-msgs, ros-kinetic-roslaunch, ros-kinetic-rospy, ros-kinetic-rospy-message-converter, ros-kinetic-sensor-msgs, ros-kinetic-std-msgs, ros-kinetic-tf, ros-kinetic-visualization-msgs
+Homepage: https://github.com/dfki-ric/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-mir-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-websocket, ros-kinetic-actionlib-msgs, ros-kinetic-diagnostic-msgs, ros-kinetic-dynamic-reconfigure, ros-kinetic-geometry-msgs, ros-kinetic-mir-actions, ros-kinetic-mir-description, ros-kinetic-mir-msgs, ros-kinetic-move-base-msgs, ros-kinetic-nav-msgs, ros-kinetic-robot-state-publisher, ros-kinetic-rosgraph-msgs, ros-kinetic-rospy, ros-kinetic-rospy-message-converter, ros-kinetic-sensor-msgs, ros-kinetic-std-msgs, ros-kinetic-tf, ros-kinetic-visualization-msgs
+Description: A reverse ROS bridge for the MiR100 robot
