@@ -2,6 +2,9 @@
 Changelog for package mir_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.2 (2018-07-30)
+------------------
+
 1.0.1 (2018-07-17)
 ------------------
 * gazebo: Remove leading slashes in TF frames
