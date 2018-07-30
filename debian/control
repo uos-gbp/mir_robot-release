@@ -1,0 +1,13 @@
+Source: ros-indigo-mir-navigation
+Section: misc
+Priority: extra
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin, ros-indigo-roslaunch
+Homepage: https://github.com/dfki-ric/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-indigo-mir-navigation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-base-local-planner, ros-indigo-dwa-local-planner, ros-indigo-eband-local-planner, ros-indigo-map-server, ros-indigo-mir-driver, ros-indigo-move-base, ros-indigo-teb-local-planner
+Description: Launch and configuration files for move_base, localization etc.
+ on the MiR robot.
