@@ -3,7 +3,7 @@ project(mir_msgs)
 
 find_package(catkin REQUIRED COMPONENTS
   message_generation
-  std_msgs
+  geometry_msgs
 )
 
 ################################################
@@ -14,9 +14,15 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
     Encoders.msg
+    ExternalRobot.msg
+    ExternalRobots.msg
     LocalMapStat.msg
     MirExtra.msg
     MirStatus.msg
+    MissionCtrlCommand.msg
+    MissionCtrlState.msg
+    Path.msg
+    Pose2D.msg
     RobotMode.msg
     RobotState.msg
     Serial.msg
@@ -27,7 +33,7 @@ add_message_files(
 # Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES
-    std_msgs
+    geometry_msgs
 )
 
 ###################################
@@ -36,5 +42,5 @@ generate_messages(
 catkin_package(
   CATKIN_DEPENDS
     message_runtime
-    std_msgs
+    geometry_msgs
 )
