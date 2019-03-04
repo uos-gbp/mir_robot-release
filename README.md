@@ -10,6 +10,7 @@ Package overview
 
 * `mir_actions`: Action definitions for the MiR robot
 * `mir_description`: URDF description of the MiR robot
+* `mir_dwb_critics`: Plugins for the dwb_local_planner used in Gazebo
 * `mir_driver`: A reverse ROS bridge for the MiR robot
 * `mir_gazebo`: Simulation specific launch and configuration files for the MiR robot
 * `mir_msgs`: Message definitions for the MiR robot
@@ -19,36 +20,54 @@ Package overview
 Installation
 ------------
 
-### From binaries
+You can chose between binary and source install below. If you don't want to
+modify the source, the binary install is preferred (if `mir_robot` binary
+packages are available for your ROS distro). The instructions below use the ROS
+distro `kinetic` as an example; if you use a different distro (e.g.  `indigo`),
+replace all occurrences of the string `kinetic` by your distro name in the
+instructions.
 
-```bash
-sudo apt install ros-$ROS_DISTRO-mir-robot
+### Preliminaries
+
+If you haven't already installed ROS on your PC, you need to add the ROS apt
+repository. This step is necessary for either binary or source install.
+
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get update -qq
 ```
 
-### From source
+### Binary install
+
+For a binary install, it suffices to run this command:
 
 ```bash
-# install sbpl library from source
-cd $(mktemp -d)
-git clone -b master https://github.com/sbpl/sbpl.git
-cd sbpl
-mkdir build
-cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-sudo make install
+sudo apt install ros-kinetic-mir-robot
+```
 
-# create a catkin workspace and clone all required ROS packages
+See the tables at the end of this README for a list of ROS distros for which
+binary packages are available.
+
+### Source install
+
+For a source install, run the commands below instead of the command from the
+"binary install" section.
+
+```bash
+# create a catkin workspace
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src/
+
+# clone mir_robot into the catkin workspace
 git clone -b kinetic https://github.com/dfki-ric/mir_robot.git
-git clone -b indigo-devel https://github.com/ricardo-samaniego/sbpl_lattice_planner.git
 
 # use rosdep to install all dependencies (including ROS itself)
-apt-get update -qq
-apt-get install -qq -y python-rosdep
+sudo apt-get update -qq
+sudo apt-get install -qq -y python-rosdep
 sudo rosdep init
 rosdep update
-rosdep install --from-paths ./ -i -y --rosdistro kinetic --skip-keys=sbpl
+rosdep install --from-paths ./ -i -y --rosdistro kinetic
 
 # build all packages in the catkin workspace
 source /opt/ros/kinetic/setup.bash
@@ -68,17 +87,22 @@ close and reopen all terminals:
 source ~/catkin_ws/devel/setup.bash
 ```
 
-Gazebo demo
------------
+Gazebo demo (existing map)
+--------------------------
 
 ```bash
+### gazebo:
 roslaunch mir_gazebo mir_maze_world.launch
 rosservice call /gazebo/unpause_physics   # or click the "start" button in the Gazebo GUI
-roslaunch mir_gazebo fake_localization.launch delta_x:=-10.0 delta_y:=-10.0
+
+### localization:
+roslaunch mir_navigation amcl.launch initial_pose_x:=10.0 initial_pose_y:=10.0
+# or alternatively: roslaunch mir_gazebo fake_localization.launch delta_x:=-10.0 delta_y:=-10.0
+
+# navigation:
 roslaunch mir_navigation start_planner.launch \
     map_file:=$(rospack find mir_gazebo)/maps/maze.yaml \
-    virtual_walls_map_file:=$(rospack find mir_gazebo)/maps/maze_virtual_walls.yaml \
-    local_planner:=eband
+    virtual_walls_map_file:=$(rospack find mir_gazebo)/maps/maze_virtual_walls.yaml
 rviz -d $(rospack find mir_navigation)/rviz/navigation.rviz
 ```
 
@@ -86,6 +110,23 @@ Now, you can use the "2D Nav Goal" tool in RViz to set a navigation goal for mov
 
 [![MiR100 robot: navigation in Gazebo (2x)](https://i.vimeocdn.com/video/712859121.jpg?mw=640)](https://vimeo.com/279628049)
 (Click image to see video)
+
+
+Gazebo demo (mapping)
+---------------------
+
+```bash
+### gazebo:
+roslaunch mir_gazebo mir_maze_world.launch
+rosservice call /gazebo/unpause_physics   # or click the "start" button in the Gazebo GUI
+
+### mapping:
+roslaunch mir_navigation hector_mapping.launch.xml
+
+# navigation:
+roslaunch mir_navigation move_base.xml with_virtual_walls:=false
+rviz -d $(rospack find mir_navigation)/rviz/navigation.rviz
+```
 
 
 Running the driver on the real robot
