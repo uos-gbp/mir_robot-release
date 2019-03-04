@@ -21,23 +21,13 @@ install:
 script:
   - export PYTHONPATH=/usr/lib/python2.7/dist-packages   # temporary fix for travis-ci/travis-ci#8048
 
-  # install sbpl library from source
-  - cd $(mktemp -d)
-  - git clone -b master https://github.com/sbpl/sbpl.git
-  - cd sbpl
-  - mkdir build
-  - cd build
-  - cmake -DCMAKE_BUILD_TYPE=Release ..
-  - sudo make install
-
-  # create a catkin workspace and clone all required ROS packages
+  # create a catkin workspace
   - mkdir -p $CATKIN_WS_SRC
   - cd $CATKIN_WS_SRC/
   - ln -s $TRAVIS_BUILD_DIR $CATKIN_WS_SRC   # outside CI, run this instead: git clone -b kinetic https://github.com/dfki-ric/mir_robot.git
-  - git clone -b indigo-devel https://github.com/ricardo-samaniego/sbpl_lattice_planner.git
 
   # use rosdep to install all dependencies (including ROS itself)
-  - rosdep install --from-paths ./ -i -y --rosdistro $CI_ROS_DISTRO --skip-keys=sbpl
+  - rosdep install --from-paths ./ -i -y --rosdistro $CI_ROS_DISTRO
 
   # build all packages in the catkin workspace
   - source /opt/ros/${CI_ROS_DISTRO}/setup.bash
