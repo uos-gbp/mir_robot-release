@@ -3,6 +3,7 @@
   <arg name="robot_x"   default="0.0" />
   <arg name="robot_y"   default="0.0" />
   <arg name="robot_yaw" default="0.0" />
+  <arg name="prefix"    default="" />
 
   <!-- Load URDF -->
   <include file="$(find mir_description)/launch/upload_mir_urdf.launch" />
@@ -13,7 +14,7 @@
 
   <!-- Load ros_control controller configurations -->
   <rosparam file="$(find mir_description)/config/joint_state_controller.yaml" command="load" />
-  <rosparam file="$(find mir_description)/config/diffdrive_controller.yaml" command="load" />
+  <rosparam file="$(find mir_description)/config/diffdrive_controller.yaml" command="load" subst_value="true" />
 
   <!-- Start the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen"
@@ -34,11 +35,17 @@
     <param name="default_vw_min" value="-1.5" />
   </node>
 
-  <!-- create combined scan topic -->
+  <!-- create combined scan topic (like on real MiR) -->
   <node pkg="topic_tools" type="relay" name="b_scan_relay" args="b_scan scan"/>
   <node pkg="topic_tools" type="relay" name="f_scan_relay" args="f_scan scan"/>
 
-  <node name="rep117_laser_filter" pkg="mir_driver" type="rep117_filter.py" output="screen">
-    <remap from="scan_filtered" to="scan_rep117" />
+  <node name="b_rep117_laser_filter" pkg="mir_driver" type="rep117_filter.py" output="screen">
+    <remap from="scan" to="b_scan" />
+    <remap from="scan_filtered" to="b_scan_rep117" />
+  </node>
+
+  <node name="f_rep117_laser_filter" pkg="mir_driver" type="rep117_filter.py" output="screen">
+    <remap from="scan" to="f_scan" />
+    <remap from="scan_filtered" to="f_scan_rep117" />
   </node>
 </launch>
