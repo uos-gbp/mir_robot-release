@@ -1,0 +1,12 @@
+Source: ros-melodic-mir-robot
+Section: misc
+Priority: extra
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin
+Homepage: https://github.com/dfki-ric/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-melodic-mir-robot
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-mir-actions, ros-melodic-mir-description, ros-melodic-mir-driver, ros-melodic-mir-dwb-critics, ros-melodic-mir-gazebo, ros-melodic-mir-msgs, ros-melodic-mir-navigation
+Description: URDF description, Gazebo simulation, navigation, bringup launch files, message and action descriptions for the MiR100 robot.
