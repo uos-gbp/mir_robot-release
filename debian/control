@@ -1,0 +1,12 @@
+Source: ros-lunar-mir-driver
+Section: misc
+Priority: extra
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), python-websocket, ros-lunar-actionlib-msgs, ros-lunar-catkin, ros-lunar-diagnostic-msgs, ros-lunar-dynamic-reconfigure, ros-lunar-geometry-msgs, ros-lunar-mir-actions, ros-lunar-mir-msgs, ros-lunar-move-base-msgs, ros-lunar-nav-msgs, ros-lunar-rosgraph-msgs, ros-lunar-roslaunch, ros-lunar-rospy, ros-lunar-rospy-message-converter, ros-lunar-sensor-msgs, ros-lunar-std-msgs, ros-lunar-tf, ros-lunar-visualization-msgs
+Homepage: https://github.com/dfki-ric/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-lunar-mir-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-websocket, ros-lunar-actionlib-msgs, ros-lunar-diagnostic-msgs, ros-lunar-dynamic-reconfigure, ros-lunar-geometry-msgs, ros-lunar-mir-actions, ros-lunar-mir-description, ros-lunar-mir-msgs, ros-lunar-move-base-msgs, ros-lunar-nav-msgs, ros-lunar-robot-state-publisher, ros-lunar-rosgraph-msgs, ros-lunar-rospy, ros-lunar-rospy-message-converter, ros-lunar-sensor-msgs, ros-lunar-std-msgs, ros-lunar-tf, ros-lunar-visualization-msgs
+Description: A reverse ROS bridge for the MiR100 robot
