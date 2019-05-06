@@ -2,6 +2,11 @@
 Changelog for package mir_navigation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.4 (2019-05-06)
+------------------
+* Rviz config: Add planned paths + costmap from real MiR
+* Contributors: Martin Günther
+
 1.0.3 (2019-03-04)
 ------------------
 * fix frame_id for melodic (`#18 <https://github.com/dfki-ric/mir_robot/issues/18>`_)
