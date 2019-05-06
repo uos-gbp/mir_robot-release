@@ -1,0 +1,12 @@
+Source: ros-indigo-mir-dwb-critics
+Section: misc
+Priority: extra
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-angles, ros-indigo-catkin, ros-indigo-costmap-queue, ros-indigo-dwb-critics, ros-indigo-dwb-local-planner, ros-indigo-geometry-msgs, ros-indigo-nav-2d-msgs, ros-indigo-nav-2d-utils, ros-indigo-nav-core2, ros-indigo-nav-grid-iterators, ros-indigo-pluginlib, ros-indigo-roscpp, ros-indigo-sensor-msgs
+Homepage: https://github.com/dfki-ric/mir_dwb_critics
+Standards-Version: 3.9.2
+
+Package: ros-indigo-mir-dwb-critics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-angles, ros-indigo-costmap-queue, ros-indigo-dwb-critics, ros-indigo-dwb-local-planner, ros-indigo-geometry-msgs, ros-indigo-nav-2d-msgs, ros-indigo-nav-2d-utils, ros-indigo-nav-core2, ros-indigo-nav-grid-iterators, ros-indigo-pluginlib, ros-indigo-roscpp, ros-indigo-sensor-msgs
+Description: Trajectory critics for the dwb_local_planner that work well together with the SBPL global planner on the MiR robot
