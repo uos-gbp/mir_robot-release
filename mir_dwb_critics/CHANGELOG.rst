@@ -2,6 +2,9 @@
 Changelog for package mir_dwb_critics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.4 (2019-05-06)
+------------------
+
 1.0.3 (2019-03-04)
 ------------------
 * PathProgressCritic: Add heading score
