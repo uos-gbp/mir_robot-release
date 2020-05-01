@@ -1,0 +1,12 @@
+Source: ros-melodic-mir-dwb-critics
+Section: misc
+Priority: optional
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-angles, ros-melodic-catkin, ros-melodic-costmap-queue, ros-melodic-dwb-critics, ros-melodic-dwb-local-planner, ros-melodic-geometry-msgs, ros-melodic-nav-2d-msgs, ros-melodic-nav-2d-utils, ros-melodic-nav-core2, ros-melodic-nav-grid-iterators, ros-melodic-pluginlib, ros-melodic-roscpp, ros-melodic-sensor-msgs
+Homepage: https://github.com/dfki-ric/mir_dwb_critics
+Standards-Version: 3.9.2
+
+Package: ros-melodic-mir-dwb-critics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-angles, ros-melodic-costmap-queue, ros-melodic-dwb-critics, ros-melodic-dwb-local-planner, ros-melodic-geometry-msgs, ros-melodic-nav-2d-msgs, ros-melodic-nav-2d-utils, ros-melodic-nav-core2, ros-melodic-nav-grid-iterators, ros-melodic-pluginlib, ros-melodic-roscpp, ros-melodic-sensor-msgs
+Description: Trajectory critics for the dwb_local_planner that work well together with the SBPL global planner on the MiR robot
