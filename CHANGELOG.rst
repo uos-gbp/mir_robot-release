@@ -2,6 +2,9 @@
 Changelog for package mir_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.5 (2020-05-01)
+------------------
+
 1.0.4 (2019-05-06)
 ------------------
 * Update mir_msgs and mir_actions to MiR 2.3.1
