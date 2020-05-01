@@ -1,0 +1,63 @@
+ros-kinetic-mir-gazebo (1.0.5-1xenial) xenial; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Thu, 30 Apr 2020 22:00:00 -0000
+
+ros-kinetic-mir-gazebo (1.0.4-1xenial) xenial; urgency=high
+
+  * Fix gazebo launch file
+    Before this commit, the mobile base plugin couldn't initialize, because
+    subst_value didn't work.
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 05 May 2019 22:00:00 -0000
+
+ros-kinetic-mir-gazebo (1.0.3-1xenial) xenial; urgency=high
+
+  * Add hector_mapping
+  * fake_localization.launch: Add frame id args
+  * Merge pull request #16 <https://github.com/dfki-ric/mir_robot/issues/16> from niniemann/add-prefix-argument-to-configs
+    Add prefix argument to configs
+  * adds $(arg prefix) to a lot of configs
+    This is an important step to be able to re-parameterize move base,
+    the diffdrive controller, ekf, amcl and the costmaps for adding a
+    tf prefix to the robots links
+  * Fix translation error in odom_comb (#12 <https://github.com/dfki-ric/mir_robot/issues/12>)
+    Previously, the ekf localization only computed a correct orientation, but the translation still followed the pure odometry data. This led to strange errors where the robot would move sideways (despite only having a diff drive).
+    This PR changes the ekf configuration to not use any position information from the odometry, but to integrate the velocities, which fixes this problem.
+  * Split scan_rep117 topic into two separate topics
+    This fixes the problem that the back laser scanner was ignored in the
+    navigation costmap in Gazebo (probably because in Gazebo, both laser
+    scanners have the exact same timestamp).
+  * Contributors: Martin Günther, Nils Niemann
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 03 Mar 2019 23:00:00 -0000
+
+ros-kinetic-mir-gazebo (1.0.2-1xenial) xenial; urgency=high
+
+  * mir_gazebo: Install config directory
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 29 Jul 2018 22:00:00 -0000
+
+ros-kinetic-mir-gazebo (1.0.1-1xenial) xenial; urgency=high
+
+  * gazebo: Replace robot_pose_ekf with robot_localization
+    robot_pose_ekf is deprecated, and has been removed from the navigation
+    stack starting in melodic.
+  * gazebo: Adjust ekf.yaml
+  * gazebo: Copy robot_localization/ekf_template.yaml
+    ... for modification.
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Mon, 16 Jul 2018 22:00:00 -0000
+
+ros-kinetic-mir-gazebo (1.0.0-1xenial) xenial; urgency=high
+
+  * Initial release
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Wed, 11 Jul 2018 22:00:00 -0000
+
+
