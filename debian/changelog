@@ -1,0 +1,40 @@
+ros-melodic-sdc21x0 (1.0.5-1stretch) stretch; urgency=high
+
+  * Add sdc21x0 package, MC/currents topic
+  * Contributors: Martin Günther
+  * Add sdc21x0 package, MC/currents topic
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Thu, 30 Apr 2020 22:00:00 -0000
+
+ros-melodic-sdc21x0 (1.0.4-1stretch) stretch; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 05 May 2019 22:00:00 -0000
+
+ros-melodic-sdc21x0 (1.0.3-1stretch) stretch; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 03 Mar 2019 23:00:00 -0000
+
+ros-melodic-sdc21x0 (1.0.2-1stretch) stretch; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 29 Jul 2018 22:00:00 -0000
+
+ros-melodic-sdc21x0 (1.0.1-1stretch) stretch; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Mon, 16 Jul 2018 22:00:00 -0000
+
+ros-melodic-sdc21x0 (1.0.0-1stretch) stretch; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Wed, 11 Jul 2018 22:00:00 -0000
+
+
