@@ -1,0 +1,12 @@
+Source: ros-melodic-mir-gazebo
+Section: misc
+Priority: optional
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin, ros-melodic-roslaunch
+Homepage: https://github.com/dfki-ric/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-melodic-mir-gazebo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-controller-manager, ros-melodic-fake-localization, ros-melodic-gazebo-ros, ros-melodic-joint-state-publisher, ros-melodic-mir-description, ros-melodic-mir-driver, ros-melodic-robot-localization, ros-melodic-robot-state-publisher, ros-melodic-rostopic, ros-melodic-rqt-robot-steering, ros-melodic-topic-tools
+Description: Simulation specific launch and configuration files for the MiR100 robot.
