@@ -2,6 +2,12 @@
 Changelog for package mir_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.6 (2020-06-30)
+------------------
+* Update to non-deprecated robot_state_publisher node
+* Set cmake_policy CMP0048 to fix warning
+* Contributors: Martin Günther
+
 1.0.5 (2020-05-01)
 ------------------
 * Switch from Gazebo GPU laser to normal laser plugin
