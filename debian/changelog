@@ -1,0 +1,82 @@
+ros-noetic-mir-description (1.1.0-1buster) buster; urgency=high
+
+  * Initial release into noetic
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Mon, 29 Jun 2020 22:00:00 -0000
+
+ros-noetic-mir-description (1.0.6-1buster) buster; urgency=high
+
+  * Update to non-deprecated robot_state_publisher node
+  * Set cmake_policy CMP0048 to fix warning
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Mon, 29 Jun 2020 22:00:00 -0000
+
+ros-noetic-mir-description (1.0.5-1buster) buster; urgency=high
+
+  * Switch from Gazebo GPU laser to normal laser plugin
+    The GPU laser plugin has caused multiple people problems before, because
+    it is not compatible with all GPUS: #1 <https://github.com/dfki-ric/mir_robot/issues/1>
+    #32 <https://github.com/dfki-ric/mir_robot/issues/32>
+    #46 <https://github.com/dfki-ric/mir_robot/issues/46>
+    #52 <https://github.com/dfki-ric/mir_robot/issues/52>
+    The normal laser plugin directly uses the physics engine, so it doesn't
+    depend on any specific GPU. Also, it doesn't slow down the simulation
+    noticeably (maybe 1-2%).
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Thu, 30 Apr 2020 22:00:00 -0000
+
+ros-noetic-mir-description (1.0.4-1buster) buster; urgency=high
+
+  * Add legacyModeNS param to gazebo_ros_control plugin
+    This enables the new behavior of the plugin (pid_gains parameter are now
+    in the proper namespace).
+  * re-added gazebo friction parameters for the wheels (#19 <https://github.com/dfki-ric/mir_robot/issues/19>)
+  * Contributors: Martin Günther, niniemann
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 05 May 2019 22:00:00 -0000
+
+ros-noetic-mir-description (1.0.3-1buster) buster; urgency=high
+
+  * Merge pull request #16 <https://github.com/dfki-ric/mir_robot/issues/16> from niniemann/add-prefix-argument-to-configs
+    Add prefix argument to configs
+  * removed prefix from plugin frameName in sick urdf
+    The gazebo plugins automatically use tf_prefix, even if none is set
+    (in that case it defaults to the robot namespace). That's why we can
+    remove the prefix from the plugins configuration, assuming that the
+    robot namespace will be equal to the prefix.
+  * adds $(arg prefix) to a lot of configs
+    This is an important step to be able to re-parameterize move base,
+    the diffdrive controller, ekf, amcl and the costmaps for adding a
+    tf prefix to the robots links
+  * workaround eval in xacro for indigo support
+  * adds tf_prefix argument to imu.gazebo.urdf.xacro
+  * Add TFs for ultrasound sensors
+  * Contributors: Martin Günther, Nils Niemann
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 03 Mar 2019 23:00:00 -0000
+
+ros-noetic-mir-description (1.0.2-1buster) buster; urgency=high
+
+
+
+ -- Martin Günther <martin.guenther@dfki.de>  Sun, 29 Jul 2018 22:00:00 -0000
+
+ros-noetic-mir-description (1.0.1-1buster) buster; urgency=high
+
+  * gazebo: Remove leading slashes in TF frames
+    TF2 doesn't like it (e.g., robot_localization).
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Mon, 16 Jul 2018 22:00:00 -0000
+
+ros-noetic-mir-description (1.0.0-1buster) buster; urgency=high
+
+  * Initial release
+  * Contributors: Martin Günther
+
+ -- Martin Günther <martin.guenther@dfki.de>  Wed, 11 Jul 2018 22:00:00 -0000
+
+
