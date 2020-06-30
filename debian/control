@@ -1,0 +1,12 @@
+Source: ros-kinetic-mir-dwb-critics
+Section: misc
+Priority: optional
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-angles, ros-kinetic-catkin, ros-kinetic-costmap-queue, ros-kinetic-dwb-critics, ros-kinetic-dwb-local-planner, ros-kinetic-geometry-msgs, ros-kinetic-nav-2d-msgs, ros-kinetic-nav-2d-utils, ros-kinetic-nav-core2, ros-kinetic-nav-grid-iterators, ros-kinetic-pluginlib, ros-kinetic-roscpp, ros-kinetic-sensor-msgs
+Homepage: https://github.com/dfki-ric/mir_dwb_critics
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-mir-dwb-critics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-matplotlib, ros-kinetic-angles, ros-kinetic-costmap-queue, ros-kinetic-dwb-critics, ros-kinetic-dwb-local-planner, ros-kinetic-geometry-msgs, ros-kinetic-nav-2d-msgs, ros-kinetic-nav-2d-utils, ros-kinetic-nav-core2, ros-kinetic-nav-grid-iterators, ros-kinetic-pluginlib, ros-kinetic-roscpp, ros-kinetic-sensor-msgs
+Description: Trajectory critics for the dwb_local_planner that work well together with the SBPL global planner on the MiR robot
