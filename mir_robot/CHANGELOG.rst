@@ -2,6 +2,12 @@
 Changelog for package mir_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.6 (2020-06-30)
+------------------
+* Set cmake_policy CMP0048 to fix warning
+* Add sdc21x0 dependency to mir_robot meta package
+* Contributors: Martin Günther
+
 1.0.5 (2020-05-01)
 ------------------
 
