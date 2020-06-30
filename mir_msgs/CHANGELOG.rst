@@ -2,6 +2,12 @@
 Changelog for package mir_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.6 (2020-06-30)
+------------------
+* Fix some catkin_lint warnings
+* Set cmake_policy CMP0048 to fix warning
+* Contributors: Martin Günther
+
 1.0.5 (2020-05-01)
 ------------------
 
