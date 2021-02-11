@@ -2,8 +2,14 @@
 Changelog for package sdc21x0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.7 (2021-02-11)
+1.1.1 (2021-02-11)
 ------------------
+* Contributors: Martin Günther
+
+1.1.0 (2020-06-30)
+------------------
+* Initial release into noetic
+* Contributors: Martin Günther
 
 1.0.6 (2020-06-30)
 ------------------

@@ -2,7 +2,7 @@
 Changelog for package mir_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.7 (2021-02-11)
+1.1.1 (2021-02-11)
 ------------------
 * Fix subscribing twice to same topic (TF etc)
   There was a flaw in the subscriber logic that caused the mir_bridge to
@@ -12,6 +12,15 @@ Changelog for package mir_driver
   starting to stream messages on topic 'tf'
   starting to stream messages on topic 'tf'
   Probably related to `#64 <https://github.com/dfki-ric/mir_robot/issues/64>`_.
+* Contributors: Martin Günther
+
+1.1.0 (2020-06-30)
+------------------
+* Initial release into noetic
+* Adapt to changes in websocket-client >= 0.49
+  Ubuntu 16.04 has python-websocket  0.18
+  Ubuntu 20.04 has python3-websocket 0.53
+* Update scripts to Python3 (Noetic)
 * Contributors: Martin Günther
 
 1.0.6 (2020-06-30)
