@@ -2,10 +2,8 @@
 Changelog for package mir_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.1.0 (2020-06-30)
+1.0.7 (2021-02-11)
 ------------------
-* Initial release into noetic
-* Contributors: Martin Günther
 
 1.0.6 (2020-06-30)
 ------------------
