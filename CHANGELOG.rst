@@ -2,6 +2,9 @@
 Changelog for package mir_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.2 (2021-05-12)
+------------------
+
 1.1.1 (2021-02-11)
 ------------------
 * Fix subscribing twice to same topic (TF etc)
