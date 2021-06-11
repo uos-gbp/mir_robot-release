@@ -2,10 +2,53 @@
 Changelog for package mir_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.1.2 (2021-05-12)
+1.0.8 (2021-06-11)
 ------------------
+* Merge branch 'melodic-2.8' into melodic
+* Subscribe to move_base_simple/goal in relative namespace
+* Use absolute topics for /tf, /tf_static, /map etc.
+* Rename tf frame and topic 'odom_comb' -> 'odom'
+  This is how they are called on the real MiR since MiR software 2.0.
+* Fix handling of tf_static topic
+  This does two things:
+  1. Make the tf_static topic latched.
+  2. Cache all transforms, publish as one message.
+* Increase queue_size for publishers + subscribers to 10
+  One case where this was a problem was the tf_static topic: Since
+  multiple messages are being published at once, the subscriber often
+  missed one. The tf_static topic will be fixed anyway in the next commit,
+  but let's increase the queue_size anyway to avoid such bugs in the
+  future.
+* Fix type warning
+* Update topic list to 2.8.3.1
+* Reformat python code using black
+* Remove outdated topics
+  These topics don't exist on MiR software 2.8.3 any more (most of them
+  have been removed a long time ago).
+  Fixes `#37 <https://github.com/dfki-ric/mir_robot/issues/37>`_.
+* Remove MirStatus
+  This message was removed in MiR software 2.0 (Renamed to RobotStatus).
+* Use same MirMoveBase params as real MiR (2.8.3)
+  This shouldn't make a difference (it used to work before). Just removing
+  one more potential source of error.
+* Fix: Converts move_base_simple/goal into a move_base action. (`#62 <https://github.com/dfki-ric/mir_robot/issues/62>`_)
+  At least MIR software version 2.8 does not react properly to move_base_simple/goal messages. This implements a workaround.
+  Closes `#60 <https://github.com/dfki-ric/mir_robot/issues/60>`_.
+* Fix: Adds subscription to "tf_static". (`#58 <https://github.com/dfki-ric/mir_robot/issues/58>`_)
+  Some transformations are published on this topic and are needed to
+  obtain a full tf tree. E.g. "base_footprint" to "base_link"
+* Minor: Removes /particlecloud from the list of published topics. (`#57 <https://github.com/dfki-ric/mir_robot/issues/57>`_)
+* Fix: Add missing dict_filter keyword argument for cmd_vel msgs (`#56 <https://github.com/dfki-ric/mir_robot/issues/56>`_)
+* Remove relative_move_action (MiR => 2.4.0)
+  This action was merged into the generic MirMoveBaseAction in MiR
+  software 2.4.0.
+* Adjust to changed MirMoveBase action (MiR >= 2.4.0)
+  See `#45 <https://github.com/dfki-ric/mir_robot/issues/45>`_.
+* Adjust cmd_vel topic to TwistStamped (MiR >= 2.7)
+  See `#45 <https://github.com/dfki-ric/mir_robot/issues/45>`_.
+* Contributors: Martin Günther, matthias-mayr
 
-1.1.1 (2021-02-11)
+1.0.7 (2021-02-11)
 ------------------
 * Fix subscribing twice to same topic (TF etc)
   There was a flaw in the subscriber logic that caused the mir_bridge to
@@ -15,15 +58,6 @@ Changelog for package mir_driver
   starting to stream messages on topic 'tf'
   starting to stream messages on topic 'tf'
   Probably related to `#64 <https://github.com/dfki-ric/mir_robot/issues/64>`_.
-* Contributors: Martin Günther
-
-1.1.0 (2020-06-30)
-------------------
-* Initial release into noetic
-* Adapt to changes in websocket-client >= 0.49
-  Ubuntu 16.04 has python-websocket  0.18
-  Ubuntu 20.04 has python3-websocket 0.53
-* Update scripts to Python3 (Noetic)
 * Contributors: Martin Günther
 
 1.0.6 (2020-06-30)

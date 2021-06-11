@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import math
 import matplotlib.pyplot as plt
@@ -26,7 +26,7 @@ class MPrim:
         self.cost = float(get_value(f.readline(), "additionalactioncostmult:"))
         self.nrPoses = int(get_value(f.readline(), "intermediateposes:"))
         poses = []
-        for _ in range(self.nrPoses):
+        for _ in xrange(self.nrPoses):
             poses.append(f.readline())
         self.poses = np.loadtxt(poses, delimiter=" ")
         self.cmap = plt.get_cmap("nipy_spectral")
@@ -44,7 +44,7 @@ class MPrims:
         self.nrPrims = int(get_value(f.readline(), "totalnumberofprimitives:"))
 
         self.prims = []
-        for _ in range(self.nrPrims):
+        for _ in xrange(self.nrPrims):
             self.prims.append(MPrim(f))
 
         f.close()

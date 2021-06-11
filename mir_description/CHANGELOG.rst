@@ -2,12 +2,14 @@
 Changelog for package mir_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.1.2 (2021-05-12)
+1.0.8 (2021-06-11)
 ------------------
-* Fix laser scan frame_id with gazebo_plugins 2.9.2
+* Merge branch 'melodic-2.8' into melodic
+* Rename tf frame and topic 'odom_comb' -> 'odom'
+  This is how they are called on the real MiR since MiR software 2.0.
 * Contributors: Martin Günther
 
-1.1.1 (2021-02-11)
+1.0.7 (2021-02-11)
 ------------------
 * Add prepend_prefix_to_laser_frame to URDF and launch files
   Fixes `#65 <https://github.com/dfki-ric/mir_robot/issues/65>`_.
@@ -16,11 +18,6 @@ Changelog for package mir_description
 * Add missing 'xacro:' xml namespace prefixes
   Macro calls without 'xacro:' prefix are deprecated in Melodic and will
   be forbidden in Noetic.
-* Contributors: Martin Günther
-
-1.1.0 (2020-06-30)
-------------------
-* Initial release into noetic
 * Contributors: Martin Günther
 
 1.0.6 (2020-06-30)
@@ -33,9 +30,9 @@ Changelog for package mir_description
 ------------------
 * Switch from Gazebo GPU laser to normal laser plugin
   The GPU laser plugin has caused multiple people problems before, because
-  it is not compatible with all GPUS: `#1 <https://github.com/dfki-ric/mir_robot/issues/1>`_ 
-  `#32 <https://github.com/dfki-ric/mir_robot/issues/32>`_ 
-  `#46 <https://github.com/dfki-ric/mir_robot/issues/46>`_ 
+  it is not compatible with all GPUS: `#1 <https://github.com/dfki-ric/mir_robot/issues/1>`_
+  `#32 <https://github.com/dfki-ric/mir_robot/issues/32>`_
+  `#46 <https://github.com/dfki-ric/mir_robot/issues/46>`_
   `#52 <https://github.com/dfki-ric/mir_robot/issues/52>`_
   The normal laser plugin directly uses the physics engine, so it doesn't
   depend on any specific GPU. Also, it doesn't slow down the simulation

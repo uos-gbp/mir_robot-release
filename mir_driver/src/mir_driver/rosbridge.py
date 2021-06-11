@@ -1,5 +1,5 @@
 import websocket
-import threading
+import thread
 
 import json
 import traceback
@@ -9,7 +9,7 @@ import string
 import random
 
 
-class RosbridgeSetup():
+class RosbridgeSetup:
     def __init__(self, host, port):
         self.callbacks = {}
         self.service_callbacks = {}
@@ -31,10 +31,10 @@ class RosbridgeSetup():
 
     def unhook(self, callback):
         keys_for_deletion = []
-        for key, values in self.callbacks.items():
+        for key, values in self.callbacks.iteritems():
             for value in values:
                 if callback == value:
-                    print("Found!")
+                    print "Found!"
                     values.remove(value)
                     if len(values) == 0:
                         keys_for_deletion.append(key)
@@ -55,6 +55,7 @@ class RosbridgeSetup():
 
         if callback == None:
             self.resp = None
+
             def internalCB(msg):
                 self.resp = msg
                 return None
@@ -85,7 +86,7 @@ class RosbridgeSetup():
         self.service_callbacks[id] = callback
 
     def addCallback(self, topic, callback):
-        if topic in self.callbacks:
+        if self.callbacks.has_key(topic):
             self.callbacks[topic].append(callback)
             return False
 
@@ -104,77 +105,78 @@ class RosbridgeSetup():
             obj = json.loads(message)
             # print "Received: ", obj
 
-            if 'op' in obj:
+            if obj.has_key('op'):
                 option = obj['op']
-                if option == "publish": # A message from a topic we have subscribed to..
+                if option == "publish":  # A message from a topic we have subscribed to..
                     topic = obj["topic"]
                     msg = obj["msg"]
-                    if topic in self.callbacks:
+                    if self.callbacks.has_key(topic):
                         for callback in self.callbacks[topic]:
                             try:
                                 callback(msg)
                             except:
-                                print("exception on callback", callback, "from", topic)
+                                print "exception on callback", callback, "from", topic
                                 traceback.print_exc()
                                 raise
                 elif option == "service_response":
-                    if "id" in obj:
+                    if obj.has_key("id"):
                         id = obj["id"]
                         values = obj["values"]
-                        if id in self.service_callbacks:
+                        if self.service_callbacks.has_key(id):
                             try:
-                                #print 'id:', id, 'func:', self.service_callbacks[id]
+                                # print 'id:', id, 'func:', self.service_callbacks[id]
                                 self.service_callbacks[id](values)
                             except:
-                                print("exception on callback ID:", id)
+                                print "exception on callback ID:", id
                                 traceback.print_exc()
                                 raise
                     else:
-                        print("Missing ID!")
+                        print "Missing ID!"
                 else:
-                    print("Recieved unknown option - it was: ", option)
+                    print "Recieved unknown option - it was: ", option
             else:
-                print("No OP key!")
+                print "No OP key!"
         except:
-            print("exception in onMessageReceived")
-            print("message", message)
+            print "exception in onMessageReceived"
+            print "message", message
             traceback.print_exc()
             raise
 
 
-class RosbridgeWSConnection():
+class RosbridgeWSConnection:
     def __init__(self, host, port):
-        self.ws = websocket.WebSocketApp(("ws://%s:%d/" % (host, port)), on_message=self.on_message, on_error=self.on_error, on_close=self.on_close)
+        self.ws = websocket.WebSocketApp(
+            ("ws://%s:%d/" % (host, port)), on_message=self.on_message, on_error=self.on_error, on_close=self.on_close
+        )
         self.ws.on_open = self.on_open
-        self.run_thread = threading.Thread(target=self.run)
-        self.run_thread.start()
+        self.run_thread = thread.start_new_thread(self.run, ())
         self.connected = False
         self.errored = False
         self.callbacks = []
 
-    def on_open(self):
-        print("### ROS bridge connected ###")
-        self.connected=True
+    def on_open(self, ws):
+        print "### ROS bridge connected ###"
+        self.connected = True
 
     def sendString(self, message):
         if not self.connected:
-            print("Error: not connected, could not send message")
+            print "Error: not connected, could not send message"
             # TODO: throw exception
         else:
             self.ws.send(message)
 
-    def on_error(self, error):
+    def on_error(self, ws, error):
         self.errored = True
-        print("Error: %s" % error)
+        print "Error: %s" % error
 
-    def on_close(self):
+    def on_close(self, ws):
         self.connected = False
-        print("### ROS bridge closed ###")
+        print "### ROS bridge closed ###"
 
     def run(self, *args):
         self.ws.run_forever()
 
-    def on_message(self, message):
+    def on_message(self, ws, message):
         # Call the handlers
         for callback in self.callbacks:
             callback(message)

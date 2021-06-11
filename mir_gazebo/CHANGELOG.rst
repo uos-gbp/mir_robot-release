@@ -2,12 +2,14 @@
 Changelog for package mir_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.1.2 (2021-05-12)
+1.0.8 (2021-06-11)
 ------------------
-* Fix laser scan frame_id with gazebo_plugins 2.9.2
+* Merge branch 'melodic-2.8' into melodic
+* Rename tf frame and topic 'odom_comb' -> 'odom'
+  This is how they are called on the real MiR since MiR software 2.0.
 * Contributors: Martin Günther
 
-1.1.1 (2021-02-11)
+1.0.7 (2021-02-11)
 ------------------
 * mir_gazebo: Add model_name arg
 * Move joint_state_publisher to mir_gazebo_common.launch
@@ -15,11 +17,6 @@ Changelog for package mir_gazebo
 * Add prepend_prefix_to_laser_frame to URDF and launch files
   Fixes `#65 <https://github.com/dfki-ric/mir_robot/issues/65>`_.
 * Add tf_prefix to URDF and launch files
-* Contributors: Martin Günther
-
-1.1.0 (2020-06-30)
-------------------
-* Initial release into noetic
 * Contributors: Martin Günther
 
 1.0.6 (2020-06-30)

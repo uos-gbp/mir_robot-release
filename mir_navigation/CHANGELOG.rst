@@ -2,24 +2,19 @@
 Changelog for package mir_navigation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.1.2 (2021-05-12)
+1.0.8 (2021-06-11)
 ------------------
-* Uncomment available dependencies in noetic (`#79 <https://github.com/dfki-ric/mir_robot/issues/79>`_)
-* Contributors: Oscar Lima
+* Merge branch 'melodic-2.8' into melodic
+* Rename tf frame and topic 'odom_comb' -> 'odom'
+  This is how they are called on the real MiR since MiR software 2.0.
+* Reformat python code using black
+* Contributors: Martin Günther
 
-1.1.1 (2021-02-11)
+1.0.7 (2021-02-11)
 ------------------
 * Add optional namespace to launch files
 * Add prefix to start_planner.launch (`#67 <https://github.com/dfki-ric/mir_robot/issues/67>`_)
-* Update scripts to Python3 (Noetic)
-* Contributors: Martin Günther
-
-1.1.0 (2020-06-30)
-------------------
-* Initial release into noetic
-* Remove hector_mapping dependency (not released in noetic)
-* Update scripts to Python3 (Noetic)
-* Contributors: Martin Günther
+* Contributors: Christoph Krause, Martin Günther
 
 1.0.6 (2020-06-30)
 ------------------
