@@ -2,9 +2,9 @@
 Changelog for package mir_actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.8 (2021-06-11)
+1.1.3 (2021-06-11)
 ------------------
-* Merge branch 'melodic-2.8' into melodic
+* Merge branch 'melodic-2.8' into noetic
 * Remove RelativeMove action
   It was removed in MiR software 2.4.0.
 * Update mir_actions to MiR 2.8.3
@@ -12,8 +12,17 @@ Changelog for package mir_actions
   See `#45 <https://github.com/dfki-ric/mir_robot/issues/45>`_.
 * Contributors: Martin Günther
 
-1.0.7 (2021-02-11)
+1.1.2 (2021-05-12)
 ------------------
+
+1.1.1 (2021-02-11)
+------------------
+* Contributors: Martin Günther
+
+1.1.0 (2020-06-30)
+------------------
+* Initial release into noetic
+* Contributors: Martin Günther
 
 1.0.6 (2020-06-30)
 ------------------

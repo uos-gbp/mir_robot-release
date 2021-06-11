@@ -44,8 +44,8 @@ Installation
 You can chose between binary and source install below. If you don't want to
 modify the source, the binary install is preferred (if `mir_robot` binary
 packages are available for your ROS distro). The instructions below use the ROS
-distro `melodic` as an example; if you use a different distro (e.g.  `noetic`),
-replace all occurrences of the string `melodic` by your distro name in the
+distro `noetic` as an example; if you use a different distro (e.g.  `melodic`),
+replace all occurrences of the string `noetic` by your distro name in the
 instructions.
 
 ### Preliminaries
@@ -64,7 +64,7 @@ sudo apt-get update -qq
 For a binary install, it suffices to run this command:
 
 ```bash
-sudo apt install ros-melodic-mir-robot
+sudo apt install ros-noetic-mir-robot
 ```
 
 See the tables at the end of this README for a list of ROS distros for which
@@ -81,17 +81,17 @@ mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src/
 
 # clone mir_robot into the catkin workspace
-git clone -b melodic https://github.com/dfki-ric/mir_robot.git
+git clone -b noetic https://github.com/dfki-ric/mir_robot.git
 
 # use rosdep to install all dependencies (including ROS itself)
 sudo apt-get update -qq
 sudo apt-get install -qq -y python-rosdep
 sudo rosdep init
 rosdep update
-rosdep install --from-paths ./ -i -y --rosdistro melodic
+rosdep install --from-paths ./ -i -y --rosdistro noetic
 
 # build all packages in the catkin workspace
-source /opt/ros/melodic/setup.bash
+source /opt/ros/noetic/setup.bash
 catkin_init_workspace
 cd ~/catkin_ws
 catkin_make -DCMAKE_BUILD_TYPE=RelWithDebugInfo
@@ -165,7 +165,7 @@ index 27b9159..7773fae 100644
 @@ -17,6 +17,10 @@
        <remap from="$(arg namespace)/mobile_base_controller/cmd_vel" to="$(arg namespace)/cmd_vel" />
        <remap from="$(arg namespace)/mobile_base_controller/odom"    to="$(arg namespace)/odom" />
- 
+
 +      <remap from="mir2/joint_states"                   to="mir2/mir/joint_states" />
 +      <remap from="mir2/mobile_base_controller/cmd_vel" to="mir2/cmd_vel" />
 +      <remap from="mir2/mobile_base_controller/odom"    to="mir2/odom" />
@@ -182,7 +182,7 @@ Then you can run the simulation like this:
 roslaunch mir_gazebo mir_maze_world.launch tf_prefix:=mir
 
 # first MiR: start localization, navigation + rviz
-roslaunch mir_navigation amcl.launch initial_pose_x:=10.0 initial_pose_y:=10.0 tf_prefix:=mir
+roslaunch mir_navigation amcl.launch initial_pose_x:=10.0 initial_pose_y:=10.0 tf_prefix:=mir#
 roslaunch mir_navigation start_planner.launch \
         map_file:=$(rospack find mir_gazebo)/maps/maze.yaml \
         virtual_walls_map_file:=$(rospack find mir_gazebo)/maps/maze_virtual_walls.yaml prefix:=mir/

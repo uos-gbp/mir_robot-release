@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (c) 2016, David Conner (Christopher Newport University)
 # Based on genmprim_unicycle.m
@@ -121,7 +121,7 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
         basemprimendpts22p5_c[5, :] = np.array(np.hstack((0.0, 0.0, 1.0, turninplacecostmult)))
         basemprimendpts22p5_c[6, :] = np.array(np.hstack((0.0, 0.0, -1.0, turninplacecostmult)))
     else:
-        print ('ERROR: undefined mprims type\n')
+        print('ERROR: undefined mprims type\n')
         return []
 
     fout = open(outfilename, 'w')
@@ -175,7 +175,7 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
                 basemprimendpts_c[2] = -basemprimendpts33p75_c[primind, 2]
                 #%reverse the angle as well
                 angle = currentangle - (78.75 * np.pi) / 180.0
-                print ('78p75\n')
+                print('78p75\n')
 
             elif ((currentangle_36000int - 6750) % 9000) == 0:
                 basemprimendpts_c = (
@@ -188,7 +188,7 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
                 #%reverse the angle as well
                 # print('%d : %d %d %d onto %d %d %d\n'%(primind-1,basemprimendpts22p5_c[int(primind)-1,0], basemprimendpts22p5_c[int(primind)-1,1], basemprimendpts22p5_c[int(primind)-1,2], basemprimendpts_c[0], basemprimendpts_c[1], basemprimendpts_c[2]))
                 angle = currentangle - (67.5 * np.pi) / 180.0
-                print ('67p5\n')
+                print('67p5\n')
 
             elif ((currentangle_36000int - 5625) % 9000) == 0:
                 basemprimendpts_c = (
@@ -200,25 +200,25 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
                 basemprimendpts_c[2] = -basemprimendpts11p25_c[primind, 2]
                 #%reverse the angle as well
                 angle = currentangle - (56.25 * np.pi) / 180.0
-                print ('56p25\n')
+                print('56p25\n')
 
             elif ((currentangle_36000int - 3375) % 9000) == 0:
                 basemprimendpts_c = basemprimendpts33p75_c[int(primind), :]
                 angle = currentangle - (33.75 * np.pi) / 180.0
-                print ('33p75\n')
+                print('33p75\n')
 
             elif ((currentangle_36000int - 2250) % 9000) == 0:
                 basemprimendpts_c = basemprimendpts22p5_c[int(primind) - 1, :]
                 angle = currentangle - (22.5 * np.pi) / 180.0
-                print ('22p5\n')
+                print('22p5\n')
 
             elif ((currentangle_36000int - 1125) % 9000) == 0:
                 basemprimendpts_c = basemprimendpts11p25_c[int(primind), :]
                 angle = currentangle - (11.25 * np.pi) / 180.0
-                print ('11p25\n')
+                print('11p25\n')
 
             else:
-                print ('ERROR: invalid angular resolution. angle = %d\n', currentangle_36000int)
+                print('ERROR: invalid angular resolution. angle = %d\n' % currentangle_36000int)
                 return []
 
             #%now figure out what action will be
@@ -228,8 +228,8 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
             endy_c = np.round((baseendpose_c[0] * np.sin(angle)) + (baseendpose_c[1] * np.cos(angle)))
             endtheta_c = np.fmod(angleind - 1 + baseendpose_c[2], numberofangles)
             endpose_c = np.array(np.hstack((endx_c, endy_c, endtheta_c)))
-            print "endpose_c=", endpose_c
-            print ('rotation angle=%f\n' % (angle * 180.0 / np.pi))
+            print("endpose_c=", endpose_c)
+            print(('rotation angle=%f\n' % (angle * 180.0 / np.pi)))
             # if np.logical_and(baseendpose_c[1] == 0., baseendpose_c[2] == 0.):
             #%fprintf(1, 'endpose=%d %d %d\n', endpose_c(1), endpose_c(2), endpose_c(3));
 
@@ -252,8 +252,8 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
                     )
                 )
 
-                print "startpt =", startpt
-                print "endpt   =", endpt
+                print("startpt =", startpt)
+                print("endpt   =", endpt)
                 intermcells_m = np.zeros((numofsamples, 3))
                 if np.logical_or(np.logical_and(endx_c == 0.0, endy_c == 0.0), baseendpose_c[2] == 0.0):
                     #%turn in place or move forward
@@ -296,7 +296,7 @@ def genmprim_unicycle(outfilename, visualize=False, separate_plots=False):
                     # print "tv=",tv
 
                     if l < 0.0:
-                        print ('WARNING: l = %f < 0 -> bad action start/end points\n' % (l))
+                        print(('WARNING: l = %f < 0 -> bad action start/end points\n' % (l)))
                         l = 0.0
 
                     #%compute rv

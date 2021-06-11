@@ -2,9 +2,9 @@
 Changelog for package mir_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.8 (2021-06-11)
+1.1.3 (2021-06-11)
 ------------------
-* Merge branch 'melodic-2.8' into melodic
+* Merge branch 'melodic-2.8' into noetic
 * Subscribe to move_base_simple/goal in relative namespace
 * Use absolute topics for /tf, /tf_static, /map etc.
 * Rename tf frame and topic 'odom_comb' -> 'odom'
@@ -19,7 +19,6 @@ Changelog for package mir_driver
   missed one. The tf_static topic will be fixed anyway in the next commit,
   but let's increase the queue_size anyway to avoid such bugs in the
   future.
-* Fix type warning
 * Update topic list to 2.8.3.1
 * Reformat python code using black
 * Remove outdated topics
@@ -48,7 +47,10 @@ Changelog for package mir_driver
   See `#45 <https://github.com/dfki-ric/mir_robot/issues/45>`_.
 * Contributors: Martin Günther, matthias-mayr
 
-1.0.7 (2021-02-11)
+1.1.2 (2021-05-12)
+------------------
+
+1.1.1 (2021-02-11)
 ------------------
 * Fix subscribing twice to same topic (TF etc)
   There was a flaw in the subscriber logic that caused the mir_bridge to
@@ -58,6 +60,15 @@ Changelog for package mir_driver
   starting to stream messages on topic 'tf'
   starting to stream messages on topic 'tf'
   Probably related to `#64 <https://github.com/dfki-ric/mir_robot/issues/64>`_.
+* Contributors: Martin Günther
+
+1.1.0 (2020-06-30)
+------------------
+* Initial release into noetic
+* Adapt to changes in websocket-client >= 0.49
+  Ubuntu 16.04 has python-websocket  0.18
+  Ubuntu 20.04 has python3-websocket 0.53
+* Update scripts to Python3 (Noetic)
 * Contributors: Martin Günther
 
 1.0.6 (2020-06-30)

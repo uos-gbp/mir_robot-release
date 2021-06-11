@@ -2,14 +2,19 @@
 Changelog for package mir_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.8 (2021-06-11)
+1.1.3 (2021-06-11)
 ------------------
-* Merge branch 'melodic-2.8' into melodic
+* Merge branch 'melodic-2.8' into noetic
 * Rename tf frame and topic 'odom_comb' -> 'odom'
   This is how they are called on the real MiR since MiR software 2.0.
 * Contributors: Martin Günther
 
-1.0.7 (2021-02-11)
+1.1.2 (2021-05-12)
+------------------
+* Fix laser scan frame_id with gazebo_plugins 2.9.2
+* Contributors: Martin Günther
+
+1.1.1 (2021-02-11)
 ------------------
 * Add prepend_prefix_to_laser_frame to URDF and launch files
   Fixes `#65 <https://github.com/dfki-ric/mir_robot/issues/65>`_.
@@ -18,6 +23,11 @@ Changelog for package mir_description
 * Add missing 'xacro:' xml namespace prefixes
   Macro calls without 'xacro:' prefix are deprecated in Melodic and will
   be forbidden in Noetic.
+* Contributors: Martin Günther
+
+1.1.0 (2020-06-30)
+------------------
+* Initial release into noetic
 * Contributors: Martin Günther
 
 1.0.6 (2020-06-30)
