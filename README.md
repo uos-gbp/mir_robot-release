@@ -1,3 +1,35 @@
+## mir_robot (noetic) - 1.1.3-1
+
+The packages in the `mir_robot` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -y mir_robot --rosdistro noetic` on `Fri, 11 Jun 2021 12:08:05 -0000`
+
+These packages were released:
+- `mir_actions`
+- `mir_description`
+- `mir_driver`
+- `mir_dwb_critics`
+- `mir_gazebo`
+- `mir_msgs`
+- `mir_navigation`
+- `mir_robot`
+- `sdc21x0`
+
+Version of package(s) in repository `mir_robot`:
+
+- upstream repository: https://github.com/dfki-ric/mir_robot.git
+- release repository: https://github.com/uos-gbp/mir_robot-release.git
+- rosdistro version: `1.1.2-1`
+- old version: `1.1.2-1`
+- new version: `1.1.3-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.1`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## mir_robot (melodic) - 1.0.8-1
 
 The packages in the `mir_robot` repository were released into the `melodic` distro by running `/usr/bin/bloom-release -y mir_robot --rosdistro melodic` on `Fri, 11 Jun 2021 11:56:29 -0000`
