@@ -1,5 +1,5 @@
-mir_driver
-==========
+mir_robot
+=========
 
 This repo contains a ROS driver and ROS configuration files (URDF description,
 Gazebo launch files, move_base config, bringup launch files, message and action
@@ -22,8 +22,13 @@ This repo has been confirmed to work with the following robots:
 It probably also works with the MiR250 and MiR1000. If you can test it on one
 of those, please let us know if it works.
 
-The only supported software version is **MiR software 2.8.3.1**. You can try if
-it works with other versions, but this is the one that is known to work.
+This repo has been tested with the following MiR software versions:
+
+* 2.8.3.1
+* 2.13.4.1
+
+You can try if it works with other versions, but these are the ones that are
+known to work.
 
 
 Package overview
@@ -98,7 +103,7 @@ catkin_make -DCMAKE_BUILD_TYPE=RelWithDebugInfo
 ```
 
 In case you encounter problems, please compare the commands above to the build
-step in [`.travis.yml`](.travis.yml); that should always have the most
+step in [`.github/workflows/github-actions.yml`](.github/workflows/github-actions.yml); that should always have the most
 recent list of commands.
 
 You should add the following line to the end of your `~/.bashrc`, and then
@@ -267,6 +272,8 @@ To fix this:
 
 Afterwards, the ROS software on the robot will restart, so you'll have to start `move_base` again (see below).
 
+If you have an external PC on the MiR platform, you can use `chrony` to automatically synchronize system time (see below).
+
 
 ### Start `move_base` on the robot
 
@@ -292,6 +299,35 @@ If the robot's localization is lost:
 roslaunch mir_driver mir.launch
 ```
 
+Advanced
+--------
+
+### Installing chrony to synchronize system time automatically
+
+If you have an external PC integrated into your robot that is on the same wired
+network as the MiR PC, you can use `chrony` to automatically synchronize the
+MiR's system time. Unfortunately, this method is not easy to install.
+
+Let's call the external PC `external-pc`. That PC's clock is our reference
+clock. It is synced to an NTP clock whenever the `external-pc` has access to
+the internet. To implement this synchronization solution, install `chrony` on
+both the `external-pc` and the internal PC of the MiR, and set up the
+`external-pc` as the chrony server and the internal MiR PC as the chrony
+client. This way, the clocks on these systems always stay in sync without any
+manual interaction.
+
+To install things on the internal MiR PC:
+
+* connect a monitor and keyboard to the ports that are exposed on one corner of the MiR
+* boot into a live USB linux system
+* `chroot` into the MiR PC
+* download `chrony_2.1.1-1ubuntu0.1_amd64.deb`,
+  `libtomcrypt0_1.17-7ubuntu0.1_amd64.deb`, `libtommath0_0.42.0-1.2_amd64.deb`
+  and `timelimit_1.8-1_amd64.deb` from a PC that has internet and install them
+  in the `chroot` environment onto the MiR PC using `dpkg -i`
+* set up `/etc/chrony/chrony.conf`
+
+
 Troubleshooting
 ---------------
 
@@ -304,12 +340,32 @@ status `SUCCEEDED` arrives before the corresponding result message, this
 warning will be printed. It can be safely ignored.
 
 
-Travis - Continuous Integration
--------------------------------
+### Gazebo prints errors: "No p gain specified for pid."
 
-| Melodic                                                                                                                  | Noetic                                                                                                                  |
-|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| [![Build Status](https://travis-ci.org/dfki-ric/mir_robot.svg?branch=melodic)](https://travis-ci.org/dfki-ric/mir_robot) | [![Build Status](https://travis-ci.org/dfki-ric/mir_robot.svg?branch=noetic)](https://travis-ci.org/dfki-ric/mir_robot) |
+These errors are expected and can be ignored.
+
+Unfortunately, we cannot set the PID gains (to silence the error) due to the
+following behavior of Gazebo:
+
+1. When using the `PositionJointInterface`, you *must* set the PID values for the
+   joints using that interface, otherwise you will run into
+   [this bug](https://github.com/ros-simulation/gazebo_ros_pkgs/issues/612).
+2. When using the `VelocityJointInterface`, if you omit the PID values, Gazebo
+   just perfectly follows the commanded velocities. If you specify PID values,
+   Gazebo will use a PID controller to approximate following the commanded
+   velocities, so you have to tune the PID controllers.
+
+Since we just want Gazebo to follow our commanded velocities, we cannot set the
+PID values for joints using the VelocityJointInterface, so the errors get
+printed (but can be ignored).
+
+
+GitHub Actions - Continuous Integration
+---------------------------------------
+
+| Noetic                                                                                                                                                                               |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![Build Status](https://github.com/dfki-ric/mir_robot/actions/workflows/github-actions.yml/badge.svg)](https://github.com/dfki-ric/mir_robot/actions/workflows/github-actions.yml/) |
 
 
 ROS Buildfarm
