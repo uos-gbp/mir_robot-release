@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>mir_actions</name>
-  <version>1.1.6</version>
+  <version>1.1.7</version>
   <description>Action definitions for the MiR robot</description>
 
   <maintainer email="martin.guenther@dfki.de">Martin Günther</maintainer>
@@ -17,6 +17,7 @@
 
   <depend>actionlib</depend>
   <depend>geometry_msgs</depend>
+  <depend>mir_msgs</depend>
   <depend>nav_msgs</depend>
 
   <build_depend>message_generation</build_depend>
