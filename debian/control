@@ -1,0 +1,12 @@
+Source: ros-noetic-mir-robot
+Section: misc
+Priority: optional
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin
+Homepage: https://github.com/DFKI-NI/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-noetic-mir-robot
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-mir-actions, ros-noetic-mir-description, ros-noetic-mir-driver, ros-noetic-mir-dwb-critics, ros-noetic-mir-gazebo, ros-noetic-mir-msgs, ros-noetic-mir-navigation, ros-noetic-sdc21x0
+Description: URDF description, Gazebo simulation, navigation, bringup launch files, message and action descriptions for the MiR robot.
