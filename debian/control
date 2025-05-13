@@ -1,0 +1,12 @@
+Source: ros-noetic-mir-dwb-critics
+Section: misc
+Priority: optional
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-angles, ros-noetic-catkin, ros-noetic-costmap-queue, ros-noetic-dwb-critics, ros-noetic-dwb-local-planner, ros-noetic-geometry-msgs, ros-noetic-nav-2d-msgs, ros-noetic-nav-2d-utils, ros-noetic-nav-core2, ros-noetic-nav-grid-iterators, ros-noetic-pluginlib, ros-noetic-roscpp, ros-noetic-sensor-msgs
+Homepage: https://github.com/DFKI-NI/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-noetic-mir-dwb-critics
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-matplotlib, ros-noetic-angles, ros-noetic-costmap-queue, ros-noetic-dwb-critics, ros-noetic-dwb-local-planner, ros-noetic-geometry-msgs, ros-noetic-nav-2d-msgs, ros-noetic-nav-2d-utils, ros-noetic-nav-core2, ros-noetic-nav-grid-iterators, ros-noetic-pluginlib, ros-noetic-roscpp, ros-noetic-sensor-msgs
+Description: Trajectory critics for the dwb_local_planner that work well together with the SBPL global planner on the MiR robot
