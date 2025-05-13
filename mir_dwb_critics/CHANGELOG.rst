@@ -2,6 +2,16 @@
 Changelog for package mir_dwb_critics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.8 (2025-05-13)
+------------------
+* package.xml: Use SPDX license declaration
+* Fix typo in license
+* mir_dwb_critics: Fill in description
+* Re-format C++ files using clang-format
+* mir_dwb_critics: Fix URLs in package.xml
+* Move repo to DFKI-NI
+* Contributors: Martin Günther
+
 1.1.7 (2023-01-20)
 ------------------
 * Don't set cmake_policy CMP0048
@@ -51,7 +61,7 @@ Changelog for package mir_dwb_critics
 ------------------
 * mir_dwb_critics: Add plot_dwb_scores.py
 * mir_dwb_critics: Improve print_dwb_scores output
-* added PathDistPrunedCritic for dwb (`#42 <https://github.com/dfki-ric/mir_robot/issues/42>`_)
+* added PathDistPrunedCritic for dwb (`#42 <https://github.com/DFKI-NI/mir_robot/issues/42>`_)
   which works exactly like the original PathDistCritic, except that it
   searches for a local minimum in the distance from the global path to the robots
   current position. It then prunes the global_path from the start up to
