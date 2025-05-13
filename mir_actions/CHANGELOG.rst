@@ -2,6 +2,12 @@
 Changelog for package mir_actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.8 (2025-05-13)
+------------------
+* package.xml: Use SPDX license declaration
+* Move repo to DFKI-NI
+* Contributors: Martin Günther
+
 1.1.7 (2023-01-20)
 ------------------
 * Update MirMoveBase action to 2.10.3.1
@@ -27,7 +33,7 @@ Changelog for package mir_actions
   It was removed in MiR software 2.4.0.
 * Update mir_actions to MiR 2.8.3
 * Adjust to changed MirMoveBase action (MiR >= 2.4.0)
-  See `#45 <https://github.com/dfki-ric/mir_robot/issues/45>`_.
+  See `#45 <https://github.com/DFKI-NI/mir_robot/issues/45>`_.
 * Contributors: Martin Günther
 
 1.1.2 (2021-05-12)
