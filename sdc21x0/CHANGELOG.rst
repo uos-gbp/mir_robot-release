@@ -2,6 +2,12 @@
 Changelog for package sdc21x0
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.8 (2025-05-13)
+------------------
+* package.xml: Use SPDX license declaration
+* Move repo to DFKI-NI
+* Contributors: Martin Günther
+
 1.1.7 (2023-01-20)
 ------------------
 * Don't set cmake_policy CMP0048
