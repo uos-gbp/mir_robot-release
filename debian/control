@@ -1,0 +1,12 @@
+Source: ros-noetic-mir-actions
+Section: misc
+Priority: optional
+Maintainer: Martin Günther <martin.guenther@dfki.de>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-actionlib, ros-noetic-catkin, ros-noetic-geometry-msgs, ros-noetic-message-generation, ros-noetic-mir-msgs, ros-noetic-nav-msgs
+Homepage: https://github.com/DFKI-NI/mir_robot
+Standards-Version: 3.9.2
+
+Package: ros-noetic-mir-actions
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-actionlib, ros-noetic-geometry-msgs, ros-noetic-message-runtime, ros-noetic-mir-msgs, ros-noetic-nav-msgs
+Description: Action definitions for the MiR robot
