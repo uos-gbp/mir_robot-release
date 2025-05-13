@@ -11,7 +11,7 @@
 #      notice, this list of conditions and the following disclaimer in the
 #      documentation and/or other materials provided with the distribution.
 #
-#    * Neither the name of the the copyright holder nor the names of its
+#    * Neither the name of the copyright holder nor the names of its
 #      contributors may be used to endorse or promote products derived from
 #      this software without specific prior written permission.
 #
@@ -160,7 +160,7 @@ def _prepend_tf_prefix_dict_filter(msg_dict):
     # filtered_msg_dict = copy.deepcopy(msg_dict)
     if not isinstance(msg_dict, dict):  # can happen during recursion
         return
-    for (key, value) in msg_dict.items():
+    for key, value in msg_dict.items():
         if key == 'header':
             try:
                 # prepend frame_id
@@ -187,7 +187,7 @@ def _remove_tf_prefix_dict_filter(msg_dict):
     # filtered_msg_dict = copy.deepcopy(msg_dict)
     if not isinstance(msg_dict, dict):  # can happen during recursion
         return
-    for (key, value) in msg_dict.items():
+    for key, value in msg_dict.items():
         if key == 'header':
             try:
                 # remove frame_id
@@ -472,7 +472,7 @@ class MiRBridge(object):
                 rospy.logwarn("[%s] topic '%s' is not yet subscribed to by the MiR!", rospy.get_name(), sub_topic.topic)
 
         # At least with software version 2.8 there were issues when forwarding a simple goal to the robot
-        # This workaround converts it into an action. Check https://github.com/dfki-ric/mir_robot/issues/60 for details.
+        # This workaround converts it into an action. Check https://github.com/DFKI-NI/mir_robot/issues/60 for details.
         self._move_base_client = SimpleActionClient('move_base', move_base_msgs.msg.MoveBaseAction)
         rospy.Subscriber("move_base_simple/goal", geometry_msgs.msg.PoseStamped, self._move_base_simple_goal_callback)
 
@@ -494,12 +494,12 @@ class MiRBridge(object):
             topics.append([topic_name, topic_type, has_publishers, has_subscribers])
 
         print('Publishers:')
-        for (topic_name, topic_type, has_publishers, has_subscribers) in topics:
+        for topic_name, topic_type, has_publishers, has_subscribers in topics:
             if has_publishers:
                 print((' * %s [%s]' % (topic_name, topic_type)))
 
         print('\nSubscribers:')
-        for (topic_name, topic_type, has_publishers, has_subscribers) in topics:
+        for topic_name, topic_type, has_publishers, has_subscribers in topics:
             if has_subscribers:
                 print((' * %s [%s]' % (topic_name, topic_type)))
 
